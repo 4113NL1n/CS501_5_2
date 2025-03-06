@@ -8,9 +8,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -18,6 +20,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.unit.dp
 import com.example.cs501_5_2.ui.theme.CS501_5_2Theme
 import kotlin.math.*
 
@@ -124,28 +129,17 @@ fun Compass(modifier : Modifier,
     Column(
         modifier = modifier
     ) {
+        Image(
+            painter = painterResource(R.drawable.img),
+            contentDescription = null,
+            modifier = Modifier.graphicsLayer(rotationZ = heading.toFloat())
+        )
 
-        Text(
-            text = "mag_x : $magX"
-        )
-        Text(
-            text = "mag_y : $magY"
-        )
-        Text(
-            text = "mag_z : $magZ"
-        )
         Text(
             text = "Heading : $heading"
         )
-        Text(
-            text = "accelX : $accelX"
-        )
-        Text(
-            text = "accelY : $accelY"
-        )
-        Text(
-            text = "accelZ : $accelZ"
-        )
+
+
         Text(
             text = "Roll : $gyroX"
         )
